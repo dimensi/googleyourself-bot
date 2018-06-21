@@ -1,0 +1,34 @@
+{
+  "name": "googleyourself-bot",
+  "version": "0.0.1",
+  "description": "Telegram bot for google.gik-team.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w src/**/*.js"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "google",
+    "google",
+    "yourself"
+  ],
+  "author": "Nikita Nafranets",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "esm": "^3.0.52",
+    "https-proxy-agent": "^2.2.1",
+    "telegraf": "^3.21.2",
+    "tunnel": "0.0.5"
+  }
+}
