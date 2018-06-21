@@ -27,8 +27,8 @@
   "dependencies": {
     "dotenv": "^6.0.0",
     "esm": "^3.0.52",
-    "https-proxy-agent": "^2.2.1",
+    "node-fetch": "^2.1.2",
     "telegraf": "^3.21.2",
-    "tunnel": "0.0.5"
+    "uuid": "^3.2.1"
   }
 }
