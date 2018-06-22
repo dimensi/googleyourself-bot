@@ -8,7 +8,7 @@ import {
 const botYourself = new Telegraf(process.env.BOT_YOURSELF_TOKEN)
 
 botYourself.on('inline_query', async ctx => {
-  console.log(ctx.inlineQuery)
+  console.log('yourself', ctx.inlineQuery)
   if (!ctx.inlineQuery.query) return
   try {
     const answers = await generateYourselfAnswers(ctx.inlineQuery.query)
@@ -32,7 +32,7 @@ botYourself.on('inline_query', async ctx => {
 
 const botVue = new Telegraf(process.env.BOT_VUE_TOKEN)
 botVue.on('inline_query', async ctx => {
-  console.log(ctx.inlineQuery)
+  console.log('vue', ctx.inlineQuery)
   if (!ctx.inlineQuery.query) return
   try {
     const [ruAnswers, enAnswers] = await Promise.all(
