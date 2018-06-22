@@ -50,7 +50,7 @@ class VueSearch {
       const title = hierarchy.pop()
       const desc = hierarchy.join('\n')
 
-      if (/Миграция с Vue 1/g.test(desc)) return null
+      if (/Миграция с Vue/g.test(desc)) return null
 
       return {
         title,
