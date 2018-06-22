@@ -1,30 +1,29 @@
 import Telegraf from 'telegraf'
-import uuidv4 from 'uuid/v4'
-import getURL from './getURL'
+import generateYourselfAnswers from './yourselfSearch'
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const botYourself = new Telegraf(process.env.BOT_YOURSELF_TOKEN)
 
-const createAnswer = (query, link) => ({
-  type: 'article',
-  title: query,
-  id: uuidv4(),
-  input_message_content: {
-    message_text: link,
-    disable_web_page_preview: true
+botYourself.on('inline_query', async ctx => {
+  console.log(ctx.inlineQuery)
+  if (!ctx.inlineQuery.query) return
+  try {
+    const answers = await generateYourselfAnswers(ctx.inlineQuery.query)
+    ctx.answerInlineQuery(answers)
+  } catch (err) {
+    ctx.answerInlineQuery([{
+      type: 'article',
+      title: 'Произошла ошибка',
+      id: Math.random().toString(16),
+      input_message_content: {
+        message_text: 'Произошла ошибка',
+        disable_web_page_preview: true
+      },
+      description: 'Не получилось сгенерировать ссылки'
+    }])
+
+    botYourself.telegram.sendMessage(process.env.ERROR_CHAT_ID, err.toString())
+    console.error(err)
   }
 })
 
-bot.on('inline_query', async ctx => {
-  console.log(ctx.inlineQuery)
-  if (!ctx.inlineQuery.query) return
-  const link = await getURL(ctx.inlineQuery.query)
-  ctx.answerInlineQuery([
-    createAnswer(ctx.inlineQuery.query, link)
-  ])
-})
-
-bot.on('callback_query', (ctx) => {
-  console.log('callback', ctx)
-})
-
-bot.startPolling()
+botYourself.startPolling()
