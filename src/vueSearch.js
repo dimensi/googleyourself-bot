@@ -47,12 +47,17 @@ class VueSearch {
   prepareHits (hits) {
     return hits.map(item => {
       const hierarchy = cleanAndSortHierarchy(item.hierarchy)
+      const title = hierarchy.pop()
+      const desc = hierarchy.join('\n')
+
+      if (/Миграция с Vue 1/g.test(desc)) return null
+
       return {
-        title: hierarchy.pop(),
-        desc: hierarchy.join('\n'),
+        title,
+        desc,
         url: item.url
       }
-    })
+    }).filter(item => item !== null)
   }
 
   async generateAnswers (query) {
