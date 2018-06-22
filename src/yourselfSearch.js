@@ -28,7 +28,6 @@ const descriptions = {
 
 const generateURL = async (text, type) => {
   const searchURL = engines.createSearchURL(text, type)
-  console.log('Тип', type)
   const url = bitly.getShortURLFromObj(await bitly.createURL(searchURL, [type]))
   return url
 }
