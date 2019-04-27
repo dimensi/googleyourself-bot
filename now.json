@@ -13,6 +13,9 @@
       }
     }
   ],
+  "routes": [
+    { "src": "/webhook", "dest": "/googleBot.now.js" }
+  ],
   "env": {
     "WEBHOOK_PATH": "/webhook",
     "ALIAS": "https://searchyourself.now.sh",
