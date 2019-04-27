@@ -11,6 +11,7 @@
   ],
   "env": {
     "WEBHOOK_PATH": "/webhook",
+    "ALIAS": "https://searchyourself.now.sh",
     "GOOGLE_BOT_TOKEN": "@googlebottoken",
     "BITLY_TOKEN": "@bitlytoken",
     "BITLY_GROUP_GUID": "@bitlygroupguid"
