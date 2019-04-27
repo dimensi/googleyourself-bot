@@ -26,9 +26,9 @@
   },
   "dependencies": {
     "algoliasearch": "^3.29.0",
+    "axios": "^0.18.0",
     "dotenv": "^7.0.0",
     "esm": "^3.2.22",
-    "node-fetch": "^2.4.1",
     "telegraf": "^3.29.0",
     "uuid": "^3.3.2"
   }
