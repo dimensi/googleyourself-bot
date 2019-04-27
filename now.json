@@ -21,6 +21,7 @@
     "ALIAS": "https://searchyourself.now.sh",
     "GOOGLE_BOT_TOKEN": "@googlebottoken",
     "BITLY_TOKEN": "@bitlytoken",
-    "BITLY_GROUP_GUID": "@bitlygroupguid"
+    "BITLY_GROUP_GUID": "@bitlygroupguid",
+    "DISABLE_LOG": "true"
   }
 }

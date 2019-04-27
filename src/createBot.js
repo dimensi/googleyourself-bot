@@ -10,7 +10,7 @@ export function createBot (name, token, answersFn) {
   const bot = new Telegraf(token)
 
   bot.on('inline_query', async ctx => {
-    console.log(name, ctx.inlineQuery)
+    process.env.DISABLE_LOG !== 'true' && console.log(name, ctx.inlineQuery)
     if (!ctx.inlineQuery.query) return
     try {
       const answers = (await Promise.all(answersFn.map(fn => fn(ctx.inlineQuery.query)))).reduce(
