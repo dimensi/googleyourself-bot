@@ -4,10 +4,10 @@
   "alias": ["searchyourself.now.sh"],
   "public": true,
   "builds": [
-    { "src": "./googleBot.js", "use": "@now/node" }
+    { "src": "./src/google.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/webhook", "dest": "/googleBot.js" }
+    { "src": "/webhook", "dest": "/src/google.js" }
   ],
   "env": {
     "WEBHOOK_PATH": "/webhook",
